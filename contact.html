@@ -1,0 +1,71 @@
+<?php
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $mobile = $_POST['mobile'];
+    $message = $_POST['message'];
+
+    $host = 'localhost';
+    $user = 'root';
+    $pass = '';
+    $dbname = 'dddd';
+
+    $conn = mysqli_connect($host,$user,$pass,$dbname);
+
+    $sql = "INSERT INTO contact(name,email,mobile,message) values ('$name',$email','$mobile','$message')";
+    mysqli_query($conn,$sql);
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color: #91be55"  >Contact Us</h1>
+    
+  
+    <div class="container">
+      <img src="/images/teddy2.jpg" alt="">
+    </div>
+    <div class="container2">
+
+      <h1 style="color: #91be55" >For Any Query , Send Message</h1>
+
+      
+            <form action="#" method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name..">
+              <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email address.."> <br>
+                <br>
+                <!-- <label for="country">Country</label> -->
+                <!-- <select id="country" name="country">
+                  <option value="australia">INDIA</option>
+                  <option value="canada">USA</option>
+                  <option value="usa">UK</option>
+                  <option value="usa">OTHER</option>
+                </select> -->
+                <label for="mobile">Mobile</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Enter Your Number...">
+                <label for="subject">Message</label>
+                <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
+                <input type="submit" value="Submit">
+              </form>
+        
+        <!-- <div class="col" style="width: 50%">
+            <img src="/images/dd2.jpg" alt="">
+        </div> -->
+     
+      </div>
+
+     
+    
+    
+  
+</body>
+</html>

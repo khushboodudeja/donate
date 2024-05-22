@@ -1,0 +1,49 @@
+<?php
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $mobile = $_POST['mobile'];
+    $message = $_POST['message'];
+
+    $host = 'localhost';
+    $user = 'root';
+    $pass = '';
+    $dbname = 'dddd';
+
+    $conn = mysqli_connect($host,$user,$pass,$dbname);
+
+    $sql = "INSERT INTO contact(name,email,mobile,message) values ('$name',$email','$mobile','$message')";
+    mysqli_query($conn,$sql);
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="payment.css">
+    <title>Payment Gateway</title>
+</head>
+<body  >
+    <h1 style="text-align: center; color: white; font-weight: 2000; margin: 100px; background-color:#45a049">Together We Can Help Someone</h1>
+    <div class="container">
+        <div class="input">
+            <p>Name</p>
+            <input type="text" name="" id="" placeholder="Enter Your Name">
+
+            <p>Email</p>
+            <input type="text" placeholder="Enter your email">
+
+            <p style="font-weight: 600; margin-top: 20px;">Upi id</p>
+            <input type="text"  placeholder="Enter your id">
+
+            
+        </div>
+
+        <p>Give in honor to another person</p>
+        <button>Donate now</button>
+
+        <p>By donating, you agree to our <span class="blue">terms of service </span> and <span class="blue">privacy policy</span> </p>
+    </div>
+</body>
+</html>
